@@ -8,7 +8,8 @@ The [APRS Assistant](https://github.com/afourney/aprs-assistant) is an LLM-based
 As the name suggests, **this** `aprsd-assistant-plugin` one such host container for the [APRSd](https://github.com/craigerl/aprsd) server.
 
 > [!TIP]
-> This package includes both `aprsd` and `aprsd-assistant-plugin` as dependencies, and should be the only package that you need to pip install and configure to get up and running. Read on! 
+> This package includes both `aprsd` and `aprs-assistant` as dependencies, and should be the only package that you need to pip install and configure to get up and running.
+> Read on! 
 
 -----
 
