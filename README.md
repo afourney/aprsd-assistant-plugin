@@ -20,7 +20,7 @@ pip install aprsd-assistant-plugin
 ```
 
 ## Configuration
-APRSd has many advanced configuration options, but only some are relevant for running the APRS Assistant. The following is a minimal configuration for getting up and running. Be sure to write this to the file `.config/aprsd/aprsd.conf`:
+APRSd has many advanced configuration options, but only some are relevant for running the APRS Assistant. The following is a minimal configuration for getting up and running. Be sure to write this to the file `~/.config/aprsd/aprsd.conf`:
 
 ```
 [DEFAULT]
