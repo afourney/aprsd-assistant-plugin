@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aprsd-assistant-plugin"
+dynamic = ["version"]
+description = 'APRSd plugin for hosting the APRS Assistant chatbot (aprs-assistant)'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Adam Fourney", email = "adam.fourney@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "aprsd",
+  "aprs-assistant",
+]
+
+[project.urls]
+Documentation = "https://github.com/afourney/aprsd-assistant-plugin#readme"
+Homepage = "https://github.com/afourney/aprsd-assistant-plugin"
+Source = "https://github.com/afourney/aprsd-assistant-plugin"
+Issues = "https://github.com/afourney/aprsd-assistant-plugin/issues"
+
+[tool.hatch.version]
+path = "src/aprsd_assistant_plugin/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/aprsd_assistant_plugin tests}"
+
+[tool.coverage.run]
+source_pkgs = ["aprsd_assistant_plugin", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/aprsd_assistant_plugin/__about__.py",
+]
+
+[tool.coverage.paths]
+aprsd_assistant_plugin = ["src/aprsd_assistant_plugin", "*/aprsd-assistant-plugin/src/aprsd_assistant_plugin"]
+tests = ["tests", "*/aprsd-assistant-plugin/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.hatch.build.targets.sdist]
+only-packages = true
+exclude = [
+  "tests/",
+  "tools/",
+]
