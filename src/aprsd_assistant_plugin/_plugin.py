@@ -31,6 +31,9 @@ class AssistantPlugin(plugin.APRSDRegexCommandPluginBase):
             if CONF.callsign:
                 os.environ["APRS_ASSISTANT_CALLSIGN"] = CONF.callsign
 
+            if CONF.aprs_fi and CONF.aprs_fi.apiKey:
+                os.environ["APRSFI_API_KEY"] = CONF.aprs_fi.apiKey
+
             if CONF.aprsd_assistant_plugin.openai_api_key is None:
                 if "OPENAI_API_KEY" in os.environ:
                     del os.environ["OPENAI_API_KEY"]
